@@ -17,7 +17,7 @@ def reset_storage() -> None:
 def _get_or_404(task_id: int) -> Task:
     task = _tasks.get(task_id)
     if task is None:
-    raise HTTPException(status_code=404, detail="Task not found")
+        raise HTTPException(status_code=404, detail="Task not found")
     return task
 
 

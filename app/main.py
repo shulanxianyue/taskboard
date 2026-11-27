@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-#TODO
+
 from app.routers import tasks
 
 app = FastAPI(title="TaskBoard", version="0.1.0")
