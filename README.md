@@ -79,3 +79,15 @@ Never commit `.env` to source control. It may contain local configuration or sec
 ├── requirements.txt
 └── README.md
 ```
+
+## Validation rules
+
+Invalid input is rejected with **422 Unprocessable Entity**.
+
+| Field | Rule | Response |
+| --- | --- | --- |
+| `title` | Required on create, trimmed, 1–200 characters, never null | 422 |
+| `description` | Optional, at most 2,000 characters | 422 |
+| `status` | One of `todo`, `in_progress`, `done`; default `todo`; never null | 422 |
+| Unknown fields (`id`, `owner`, …) | Rejected | 422 |
+| `task_id` (path) | Positive integer | 422 if not, 404 if unknown |
